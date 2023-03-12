@@ -24,18 +24,19 @@ export const Fetcher = () => {
         fetch(`${API_URI}/user`).then((res) => res.json().then((data) => data)),
       {
         // Bu verileri 1 saniye boyunca fresh tutacak ve her 1 saniyede bir yenileyecek
-        staleTime: 5000,
+        staleTime: 1000005000,
 
-        //Başarıyla verileri çektiğimizde çalışacak fonksiyon
+        // Başarıyla verileri çektiğimizde çalışacak fonksiyon
         onSuccess: (data) => {
           client.invalidateQueries("users");
           console.log("onSuccess", data);
         },
 
-        select: (data) => {
-          const _data = data.filter((item: any) => item.id === 1);
-          return { _data };
-        },
+        // select: (data) => {
+        //   const _data = data.filter((item: any) => item.id === 1);
+        //   console.log(_data);
+        //   return { _data };
+        // },
         // Ekrana Focuslandığında yenileme işlemi yapacak
         // refetchOnMount: false,
         // refetchOnWindowFocus: true,
@@ -66,8 +67,12 @@ export const Fetcher = () => {
       <button onClick={() => setNumber(Math.random)}>Değiştir</button>
       <br />
       <button onClick={() => refetch()}>Yenile</button>
-      <ReactQueryDevtools initialIsOpen />
-      <div>{JSON.stringify(data)}</div>
+      {isLoading ? (
+        <p>Veriler Çekiliyor</p>
+      ) : (
+        <div> {JSON.stringify(data)}</div>
+      )}
+
       <hr />
     </div>
   );

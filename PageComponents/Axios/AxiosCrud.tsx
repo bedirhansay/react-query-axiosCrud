@@ -20,7 +20,7 @@ export const AxiosGetData = () => {
         });
     };
     fecthData();
-  }, [user]);
+  }, []);
   return { user };
 };
 

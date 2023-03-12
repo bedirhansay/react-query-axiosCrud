@@ -1,23 +1,4 @@
-.navbarWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-  color: var(--dark);
-}
-
-.linkWrapper {
-  display: flex;
-
-  justify-content: space-between;
-  li {
-    padding-left: 10px;
-    color: var(--dark);
-  }
-}
-
-.button button {
+.lis {
   background: none;
   outline: none;
   padding: 15px;
