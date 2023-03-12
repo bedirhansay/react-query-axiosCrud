@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { API_URI } from "../../pages/api/collection";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { useState } from "react";
+import Link from "next/link";
 
 // Optionslar query içerisinde verilebildiği gibi yine instance içerisinde de verilebilir.
 export const client = new QueryClient({
@@ -15,6 +16,9 @@ export const client = new QueryClient({
 export const Fetcher = () => {
   const [number, setNumber] = useState(1);
 
+  const errors = () => {
+    console.log("error");
+  };
   // QueryKey bir dependenciyi temsil eder ve eğer bu dependenciyi değiştirirsek verileri yeniler.
 
   const { isLoading, error, data, isFetched, refetch, dataUpdatedAt, status } =
@@ -24,7 +28,7 @@ export const Fetcher = () => {
         fetch(`${API_URI}/user`).then((res) => res.json().then((data) => data)),
       {
         // Bu verileri 1 saniye boyunca fresh tutacak ve her 1 saniyede bir yenileyecek
-        staleTime: 1000005000,
+        staleTime: 500000,
 
         // Başarıyla verileri çektiğimizde çalışacak fonksiyon
         onSuccess: (data) => {
@@ -38,8 +42,8 @@ export const Fetcher = () => {
         //   return { _data };
         // },
         // Ekrana Focuslandığında yenileme işlemi yapacak
-        // refetchOnMount: false,
-        // refetchOnWindowFocus: true,
+        refetchOnMount: true,
+        refetchOnWindowFocus: true,
 
         //Arka Planda Yenileme İşlemleri
         // refetchIntervalInBackground: true,
@@ -53,27 +57,18 @@ export const Fetcher = () => {
 
         // Eğer verileri otomatik yenilemek istemiyorsak false yapabiliriz, butona tıklanıldığında verileri günceller
         enabled: false,
+        refetchInterval: 5000,
       }
     );
   return (
     <div>
-      <h1>Users</h1>
-      {isLoading ? <p>Loading...</p> : null}
-      {error ? <p>Error</p> : null}
-      {data ? "hello" : null}
-      <br />
-      {number}
-      <br />
-      <button onClick={() => setNumber(Math.random)}>Değiştir</button>
-      <br />
-      <button onClick={() => refetch()}>Yenile</button>
-      {isLoading ? (
-        <p>Veriler Çekiliyor</p>
-      ) : (
-        <div> {JSON.stringify(data)}</div>
-      )}
-
+      {data?.map((item: any) => (
+        <Link href={`sup/${item.id}`} key={item.id}>
+          {item.id} - {item.name}
+        </Link>
+      ))}
       <hr />
+      <button onClick={() => refetch()}>Refetch</button>
     </div>
   );
 };

@@ -13,6 +13,9 @@ export const Navbar = () => {
       <li>
         <Link href="/rqw">React Query Way </Link>
       </li>
+      <li>
+        <Link href="/sup">Single user page </Link>
+      </li>
     </ul>
   );
 };

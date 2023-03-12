@@ -36,3 +36,21 @@ export const userList = () => {
     staleTime: 10 * 60 * 1000,
   });
 };
+
+export const FindUSerById = ({ id }: any) => {
+  const QueryRes = useQuery("users", () => {
+    return (
+      axios.get(`${API_URI}/user/${id}`),
+      {
+        onSuccess: (data: any) => {
+          console.log(data);
+        },
+        select: (data: any) => {
+          const user = data.find((user: any) => user.id === id);
+          return user;
+        },
+      }
+    );
+  });
+  return { QueryRes };
+};
