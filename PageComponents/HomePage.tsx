@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
-import { AxiosGetData } from "./Axios/AxiosCrud";
-
+import React from "react";
+import { Fetcher } from "./React-Query/ReactQuery";
 export const HomePage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Fetcher />
+    </div>
+  );
 };
