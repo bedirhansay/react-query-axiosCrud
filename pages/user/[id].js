@@ -1,32 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 
-const UserItem = () => {
-  const [user, setUser] = useState();
-  const router = useRouter();
-  const { id } = router.query;
+export default function Country({ data }) {
+  return <div>data{data?.title}</div>;
+}
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/users");
-        const data = await res.json();
-        setUser(data && data.find((u) => u.id == Number(id)));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, [id]);
-
-  return (
-    <div>
-      <p> Adı: {user?.name}</p>
-      <p> E-mail: {user?.email}</p>
-      <p> City: {user?.address.city}</p>
-      <p> Username: {user?.username}</p>
-    </div>
+export const getServerSideProps = async (context) => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${context.params.id}`
   );
-};
+  const data = await res.json();
 
-export default UserItem;
+  return {
+    props: {
+      data,
+    },
+  };
+};
