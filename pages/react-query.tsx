@@ -3,20 +3,21 @@ import { GetData } from "../Hooks/GetData";
 import { useUsersRes } from "../Hooks/GetData";
 
 export default function RQ() {
-  const {
-    QueryRes: { data, isLoading, isFetched, isError, error },
-  } = GetData();
-  console.log(isLoading);
-
-  const { data: response } = useUsersRes();
+  const { QueryRes } = GetData();
+  const data = useUsersRes();
+  console.log("Hook Result", data);
+  console.log("---------------------------");
+  console.log("Hook Result Data", data.data);
+  console.log("---------------------------");
+  console.log("Query Result", QueryRes);
+  console.log("---------------------------");
+  console.log("Query Result Data", QueryRes.data);
 
   return (
     <>
-      <div>{JSON.stringify(data)}</div>;
+      <div>{JSON.stringify("d")}</div>;
       <hr />
-      {isLoading && <div>Loading...</div>}
-      {isFetched && <div>Fetched</div>}
-      {JSON.stringify(response)}
+      {JSON.stringify("")}
       <hr />
     </>
   );

@@ -26,7 +26,7 @@ export const useUsersRes = () => {
 
 export const userList = () => {
   return client.fetchQuery({
-    queryKey: ["category-explore"],
+    queryKey: ["user-res"],
     queryFn: QueryRes,
     staleTime: 10 * 60 * 1000,
   });

@@ -51,7 +51,7 @@ export const Fetcher = () => {
         // keepPreviousData: false,
 
         // Eğer verileri otomatik yenilemek istemiyorsak false yapabiliriz, butona tıklanıldığında verileri günceller
-        enabled: true,
+        enabled: false,
       }
     );
   return (
