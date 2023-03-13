@@ -4,6 +4,7 @@ import { Layout } from "../components/Layout/Layout";
 import { QueryClientProvider } from "react-query";
 import { client } from "../PageComponents/ReactQuery/ReactQuery";
 import { ReactQueryDevtools } from "react-query/types/devtools";
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={client}>

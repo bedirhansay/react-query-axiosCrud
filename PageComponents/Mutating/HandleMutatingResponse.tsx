@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-
 import { useUsersRes } from "../../Hooks/GetData";
-import axios from "axios";
-import { API_URI } from "../../pages/api/collection";
-import { useMutation, useQueryClient } from "react-query";
+import { useHandlingMutatingResponse } from "../../Hooks/HandlingMutatinResponse";
 import { useAddNewUser } from "../../Hooks/UseMutate";
 
 export const Mutating = () => {
@@ -12,22 +9,10 @@ export const Mutating = () => {
 
   const { isLoading, data, isError, error, isFetching, refetch } =
     useUsersRes();
-  const useAddNewUserSecond = () => {
-    const queryClient = useQueryClient();
-    return useMutation(
-      (userInfo: any) => {
-        return axios.post(`${API_URI}/user`, userInfo);
-      },
-      {
-        onSuccess: () => {
-          queryClient.invalidateQueries("user");
-        },
-      }
-    );
-  };
-  const { mutate } = useAddNewUser();
 
-  const handleAddUSer = () => {
+  const { mutate, data: HMR, context } = useHandlingMutatingResponse();
+
+  const handleAddUSer = (e: any) => {
     const userInfo = {
       name: name,
       username: username,
@@ -48,7 +33,7 @@ export const Mutating = () => {
           placeholder="name"
           onChange={(e) => setUserName(e.target.value)}
         />
-        <button onClick={() => handleAddUSer()} type="submit">
+        <button onClick={(e) => handleAddUSer(e)} type="submit">
           Add User
         </button>
       </form>

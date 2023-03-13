@@ -1,6 +1,8 @@
 import axios from "axios";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { API_URI } from "../pages/api/collection";
+
+// -----------------------------------------------------------
 
 export const addNewUser = (userInfo: any) => {
   return axios.post(`${API_URI}/user`, userInfo);
@@ -12,14 +14,21 @@ export const useAddNewUser = () => {
 
 // -----------------------------------------------------------
 
-// YADA
-const useAddNewUserSecond = () => {
-  return useMutation((userInfo: any) => {
-    return axios.post(`${API_URI}/user`, userInfo);
-  });
+export const useAddNewUserSecond = () => {
+  const queryClient = useQueryClient();
+  return useMutation(
+    (userInfo: any) => {
+      return axios.post(`${API_URI}/user`, userInfo);
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("user");
+      },
+    }
+  );
 };
 
-// next page
+// -----------------------------------------------------next page
 
 //   const { mutate } = useAddNewUser();
 
