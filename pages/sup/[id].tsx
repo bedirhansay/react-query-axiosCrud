@@ -7,5 +7,9 @@ export default function ID() {
 
   const { data, isLoading, isError } = useSingleUserRes(id);
   console.log(data);
-  return <div>{JSON.stringify(data)}</div>;
+  return (
+    <div>
+      {isLoading && <p>Loading...</p>} {JSON.stringify(data)}
+    </div>
+  );
 }

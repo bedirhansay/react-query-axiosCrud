@@ -16,6 +16,9 @@ export const Navbar = () => {
       <li>
         <Link href="/sup">Single user page </Link>
       </li>
+      <li>
+        <Link href="/pq">Paginated Page </Link>
+      </li>
     </ul>
   );
 };

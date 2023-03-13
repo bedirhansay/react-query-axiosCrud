@@ -44,8 +44,8 @@ export const userList = () => {
 };
 
 export const FindUSerById = (id: any) => {
-  const QueryRes = useQuery("users", () => {
+  const FindUser = useQuery("users", () => {
     return axios.get(`${API_URI}/user/${id}`);
   });
-  return { QueryRes };
+  return { FindUser };
 };

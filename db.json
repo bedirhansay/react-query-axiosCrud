@@ -53,5 +53,39 @@
       "name": "Patricia Lebsack",
       "courses": ["python", "django"]
     }
+  ],
+  "colors": [
+    {
+      "id": 20,
+      "label": "red"
+    },
+    {
+      "id": 21,
+      "label": "green"
+    },
+    {
+      "id": 22,
+      "label": "black"
+    },
+    {
+      "id": 23,
+      "label": "gray"
+    },
+    {
+      "id": 24,
+      "label": "blue"
+    },
+    {
+      "id": 25,
+      "label": "purple"
+    },
+    {
+      "id": 26,
+      "label": "pink"
+    },
+    {
+      "id": 27,
+      "label": "yellow"
+    }
   ]
 }
