@@ -3,7 +3,7 @@ import { API_URI } from "../../pages/api/collection";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { useState } from "react";
 import Link from "next/link";
-
+import { QueryRes, useUsersRes } from "../../Hooks/GetData";
 // Optionslar query içerisinde verilebildiği gibi yine instance içerisinde de verilebilir.
 export const client = new QueryClient({
   defaultOptions: {
@@ -13,12 +13,9 @@ export const client = new QueryClient({
   },
 });
 
-export const Fetcher = () => {
+export const ReactQuery = () => {
   const [number, setNumber] = useState(1);
 
-  const errors = () => {
-    console.log("error");
-  };
   // QueryKey bir dependenciyi temsil eder ve eğer bu dependenciyi değiştirirsek verileri yeniler.
 
   const { isLoading, error, data, isFetched, refetch, dataUpdatedAt, status } =
@@ -60,8 +57,12 @@ export const Fetcher = () => {
         refetchInterval: 5000,
       }
     );
+
+  // const { isLoading, error, data, isFetched, refetch, dataUpdatedAt, status } =
+  //   useUsersRes();
   return (
     <div>
+      {isLoading && <p>Loading...</p>}
       {data?.map((item: any) => (
         <Link href={`sup/${item.id}`} key={item.id}>
           {item.id} - {item.name}

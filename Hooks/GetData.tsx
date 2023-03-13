@@ -2,7 +2,8 @@ import axios from "axios";
 import React from "react";
 import { isError, useQuery } from "react-query";
 import { API_URI } from "../pages/api/collection";
-import { client } from "../PageComponents/React-Query/ReactQuery";
+import { client } from "../PageComponents/ReactQuery/ReactQuery";
+import { useQueryClient } from "react-query";
 
 // First Way to Fetch Data
 
@@ -11,6 +12,11 @@ export const GetData = () => {
     return axios.get(`${API_URI}/user`);
   });
   return { QueryRes };
+};
+
+export const useInitialData = () => {
+  const QueryClient = useQueryClient();
+  return useQuery(["user-res"]);
 };
 
 // second way to fetch data
@@ -37,20 +43,9 @@ export const userList = () => {
   });
 };
 
-export const FindUSerById = ({ id }: any) => {
+export const FindUSerById = (id: any) => {
   const QueryRes = useQuery("users", () => {
-    return (
-      axios.get(`${API_URI}/user/${id}`),
-      {
-        onSuccess: (data: any) => {
-          console.log(data);
-        },
-        select: (data: any) => {
-          const user = data.find((user: any) => user.id === id);
-          return user;
-        },
-      }
-    );
+    return axios.get(`${API_URI}/user/${id}`);
   });
   return { QueryRes };
 };

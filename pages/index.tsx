@@ -1,4 +1,4 @@
-import { HomePage } from "@pageComponents";
+import { ReactQuery } from "@pageComponents";
 import { userList } from "../Hooks/GetData";
 // export const getServerSideProps = async () => {
 //   const data = await userList();
@@ -7,4 +7,4 @@ import { userList } from "../Hooks/GetData";
 //     props: { data },
 //   };
 // };
-export default HomePage;
+export default ReactQuery;
