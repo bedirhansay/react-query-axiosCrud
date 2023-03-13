@@ -19,6 +19,9 @@ export const Navbar = () => {
       <li>
         <Link href="/pq">Paginated Page </Link>
       </li>
+      <li>
+        <Link href="/mo"> Mutating Operation </Link>
+      </li>
     </ul>
   );
 };

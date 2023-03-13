@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import { InfinitreScroll } from "../../Hooks/InfinitreScroll";
 import { API_URI } from "../../pages/api/collection";
 
 export const colorFetcher = (pageNumber: any) => {
@@ -37,10 +38,13 @@ export const PaginatedQueries = () => {
         </div>
       ))}
       <button onClick={() => handleNextPage()}>nextPage</button>
-      <button disabled={pageNumber < 1} onClick={() => handlePreviousPage()}>
+      <button disabled={pageNumber === 1} onClick={() => handlePreviousPage()}>
         previousPage
       </button>
       <p>{pageNumber}</p>
+      <hr />
+      <h2>Infinite Scroll</h2>
+      <InfinitreScroll />
     </>
   );
 };

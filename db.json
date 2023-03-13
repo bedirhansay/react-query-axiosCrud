@@ -17,6 +17,16 @@
       "name": "Patricia Lebsack",
       "username": "Karianne",
       "email": "Julianne.OConner@kory.org"
+    },
+    {
+      "name": "hakan",
+      "username": "elmas",
+      "id": 4
+    },
+    {
+      "name": "elif",
+      "username": "elmas",
+      "id": 5
     }
   ],
   "user2": [
@@ -42,16 +52,25 @@
   "channels": [
     {
       "id": 10,
-      "courses": ["angular", "react"]
+      "courses": [
+        "angular",
+        "react"
+      ]
     },
     {
       "id": 11,
-      "courses": ["java", "javascript"]
+      "courses": [
+        "java",
+        "javascript"
+      ]
     },
     {
       "id": 12,
       "name": "Patricia Lebsack",
-      "courses": ["python", "django"]
+      "courses": [
+        "python",
+        "django"
+      ]
     }
   ],
   "colors": [
