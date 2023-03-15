@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { isError, useQuery } from "react-query";
-import { API_URI } from "../pages/api/collection";
+import { API_URI } from "../pages/api/collection/collections";
 import { client } from "../PageComponents/ReactQuery/ReactQuery";
 import { useQueryClient } from "react-query";
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useMutation, useQueryClient } from "react-query";
-import { API_URI } from "../../pages/api/collection";
+import { API_URI } from "../../pages/api/collection/collections";
 export const useHandlingMutatingResponse = () => {
   const queryClient = useQueryClient();
   return useMutation(

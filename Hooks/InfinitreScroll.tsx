@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useInfiniteQuery } from "react-query";
-import { API_URI } from "../pages/api/collection";
+import { API_URI } from "../pages/api/collection/collections";
 
 export const colorFetcher = ({ pageParam = 1 }) => {
   return axios.get(`${API_URI}/colors?_limit=2&_page=${pageParam}`);

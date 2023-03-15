@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { InfinitreScroll } from "../../Hooks/InfinitreScroll";
-import { API_URI } from "../../pages/api/collection";
+import { API_URI } from "../../pages/api/collection/collections";
 
 export const colorFetcher = (pageNumber: any) => {
   return axios.get(`${API_URI}/colors?_limit=2&_page=${pageNumber}`);

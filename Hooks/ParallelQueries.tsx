@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import { API_URI } from "../pages/api/collection";
+import { API_URI } from "../pages/api/collection/collections";
 
 export const fetcherUsers = () => {
   return axios.get(`${API_URI}/user/`);

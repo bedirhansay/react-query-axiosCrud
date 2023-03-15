@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import { API_URI } from "../../pages/api/collection";
+import { API_URI } from "../../pages/api/collection/collections";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { useState } from "react";
 import Link from "next/link";

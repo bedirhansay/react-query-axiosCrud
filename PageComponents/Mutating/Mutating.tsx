@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useUsersRes } from "../../Hooks/GetData";
 import axios from "axios";
-import { API_URI } from "../../pages/api/collection";
+import { API_URI } from "../../pages/api/collection/collections";
 import { useMutation, useQueryClient } from "react-query";
 import { useAddNewUser } from "../../Hooks/UseMutate";
 

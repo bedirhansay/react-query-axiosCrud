@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery, QueryClient, useQueryClient } from "react-query";
-import { API_URI } from "../pages/api/collection";
+import { API_URI } from "../pages/api/collection/collections";
 import { client } from "../PageComponents/ReactQuery/ReactQuery";
 
 export const fetcher = (id: any) => {
