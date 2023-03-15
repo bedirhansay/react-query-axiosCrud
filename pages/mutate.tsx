@@ -1,6 +1,22 @@
-import { Button, Form, Input, Select } from "antd";
-import React from "react";
+import React, { useState } from "react";
+import { PlusOutlined } from "@ant-design/icons";
+import {
+  Form,
+  Input,
+  Button,
+  Radio,
+  Select,
+  Cascader,
+  DatePicker,
+  InputNumber,
+  TreeSelect,
+  Switch,
+  Checkbox,
+  Upload,
+} from "antd";
 
+const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 const { Option } = Select;
 
 const layout = {
@@ -49,14 +65,15 @@ export const Ant: React.FC = () => {
   };
 
   return (
-    <Form
-      {...layout}
-      form={form}
-      name="control-hooks"
-      onFinish={onFinish}
-      style={{ maxWidth: 600 }}
-    >
-      {/* {["en", ""].map((_, idx) => (
+    <>
+      <Form
+        {...layout}
+        form={form}
+        name="control-hooks"
+        onFinish={onFinish}
+        style={{ maxWidth: 600 }}
+      >
+        {/* {["en", ""].map((_, idx) => (
         <Form.Item
           name={["names", idx]}
           label="Name"
@@ -66,92 +83,94 @@ export const Ant: React.FC = () => {
           <Input />
         </Form.Item>
       ))} */}
-      {/* <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+        {/* <Form.Item name="name" label="Name" rules={[{ required: true }]}>
         <Input />
       </Form.Item> */}
 
-      <Form.Item name="price_type" label="Price Type">
-        <Select
-          placeholder="Select a option and change input text above"
-          allowClear
-        >
-          <Option value="static">static</Option>
-          <Option value="flexible">flexible</Option>
-          <Option value="count">count</Option>
-        </Select>
-      </Form.Item>
-      <Form.Item
-        noStyle
-        shouldUpdate={(prevValues, currentValues) =>
-          prevValues.price_type !== currentValues.price_type
-        }
-      >
-        {({ getFieldValue }) =>
-          getFieldValue("price_type") === "count" ? (
-            <>
-              <Form.Item name={["price_list", "price_begin"]} label="Price">
-                <Input />
-              </Form.Item>
-              <Form.Item
-                name={["price_list", "price_number"]}
-                label="Price Number "
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                name={["price_list", "price_compare"]}
-                label="Price Compare "
-              >
-                <Input />
-              </Form.Item>
-            </>
-          ) : null
-        }
-      </Form.Item>
-      <Form.Item
-        noStyle
-        shouldUpdate={(prevValues, currentValues) =>
-          prevValues.price_type !== currentValues.price_type
-        }
-      >
-        {({ getFieldValue }) =>
-          getFieldValue("price_type") === "flexible" ? (
-            <>
-              <Form.Item
-                name={["price_list", "price_begin"]}
-                label="Price Begin"
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                name={["price_type", "price_base"]}
-                label="Price Base "
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item
-                name={["price_type", "price_additional"]}
-                label="Price Per additional "
-              >
-                <Input />
-              </Form.Item>
-            </>
-          ) : null
-        }
-      </Form.Item>
+        <Form.Item name="price_type" label="Price Type">
+          <Select
+            placeholder="Select a option and change input text above"
+            allowClear
+          >
+            <Option value="static">static</Option>
+            <Option value="flexible">flexible</Option>
+            <Option value="count">count</Option>
+          </Select>
+        </Form.Item>
 
-      <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-        <Button htmlType="button" onClick={onReset}>
-          Reset
-        </Button>
-        <Button type="link" htmlType="button" onClick={onFill}>
-          Fill form
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item
+          noStyle
+          shouldUpdate={(prevValues, currentValues) =>
+            prevValues.price_type !== currentValues.price_type
+          }
+        >
+          {({ getFieldValue }) =>
+            getFieldValue("price_type") === "count" ? (
+              <>
+                <Form.Item name={["price_list", "price_begin"]} label="Price">
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name={["price_list", "price_number"]}
+                  label="Price Number "
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name={["price_list", "price_compare"]}
+                  label="Price Compare "
+                >
+                  <Input />
+                </Form.Item>
+              </>
+            ) : null
+          }
+        </Form.Item>
+        <Form.Item
+          noStyle
+          shouldUpdate={(prevValues, currentValues) =>
+            prevValues.price_type !== currentValues.price_type
+          }
+        >
+          {({ getFieldValue }) =>
+            getFieldValue("price_type") === "flexible" ? (
+              <>
+                <Form.Item
+                  name={["price_list", "price_begin"]}
+                  label="Price Begin"
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name={["price_type", "price_base"]}
+                  label="Price Base "
+                >
+                  <Input />
+                </Form.Item>
+                <Form.Item
+                  name={["price_type", "price_additional"]}
+                  label="Price Per additional "
+                >
+                  <Input />
+                </Form.Item>
+              </>
+            ) : null
+          }
+        </Form.Item>
+
+        <Form.Item {...tailLayout}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+          <Button htmlType="button" onClick={onReset}>
+            Reset
+          </Button>
+          <Button type="link" htmlType="button" onClick={onFill}>
+            Fill form
+          </Button>
+        </Form.Item>
+      </Form>
+    </>
   );
 };
 
