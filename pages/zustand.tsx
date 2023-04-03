@@ -13,10 +13,6 @@ export default function Zustand() {
     store.setUser(user);
     console.log("başarılı");
   };
-  const { nuts, honey } = useBearStore(
-    (state) => ({ nuts: state.nuts, honey: state.honey }),
-    shallow
-  );
 
   return (
     <div>
