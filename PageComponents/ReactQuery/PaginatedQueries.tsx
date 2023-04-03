@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { InfinitreScroll } from "../../Hooks/InfinitreScroll";
+import { InfinitreScroll } from "../../Hooks/InfiniteScroll";
 import { API_URI } from "../../pages/api/collection/collections";
 
 export const colorFetcher = (pageNumber: any) => {
@@ -44,7 +44,6 @@ export const PaginatedQueries = () => {
       <p>{pageNumber}</p>
       <hr />
       <h2>Infinite Scroll</h2>
-      <InfinitreScroll />
     </>
   );
 };

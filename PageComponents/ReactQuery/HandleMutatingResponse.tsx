@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useUsersRes } from "../../Hooks/GetData";
+import { useUsersRes } from "../../Hooks/axios-hooks/GetData";
 import { useHandlingMutatingResponse } from "../../Hooks/HandlingMutatinResponse";
 import { useAddNewUser } from "../../Hooks/UseMutate";
 

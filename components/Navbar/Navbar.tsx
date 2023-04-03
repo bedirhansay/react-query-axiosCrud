@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { useBearStore } from "../../store/useStore";
 
 export const Navbar = () => {
   return (

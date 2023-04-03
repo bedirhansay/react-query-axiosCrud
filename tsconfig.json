@@ -16,7 +16,10 @@
     "incremental": true,
     "paths": {
       "@pageComponents": ["./PageComponents/index.ts"],
-      "@utils": ["./utils/index.ts"]
+      "@utils": ["./utils/index.ts"],
+      "@hooks": ["./Hooks/index.ts"],
+      "@api": ["./pages/api/index.ts"],
+      "@components": ["./components/index.ts"]
     }
   },
   "include": [

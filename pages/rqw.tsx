@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { GetData } from "../Hooks/GetData";
-import { useUsersRes } from "../Hooks/GetData";
+import { GetData } from "../Hooks/axios-hooks/GetData";
+import { useUsersRes } from "../Hooks/axios-hooks/GetData";
 import { ReactQueryDevtools } from "react-query/devtools";
 import axios from "axios";
 import { API_URI } from "./api/collection/collections";

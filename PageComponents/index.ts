@@ -1,4 +1,5 @@
 export * from "./ReactQuery/ReactQuery";
-export * from "./PaginatedQueries/PaginatedQueries";
+export * from "./ReactQuery/PaginatedQueries";
 export * from "./SingleUserPage/SingleUserPage";
-export * from "./Mutating/Mutating";
+export * from "./ReactQuery/Mutating";
+export * from "./HomePage/HomePage";
