@@ -26,6 +26,8 @@ export const useUserStore = create<IUserStore>((set) => ({
     set((state) => ({ user: { ...state.user, age: state.user.age - 1 } })),
 }));
 
+// ************************************************************************
+
 export interface IMultiple {
   nuts: string;
   honey: string;
@@ -37,6 +39,8 @@ export const useMultiple = create<IMultiple>((set) => ({
   nuts: "Nuts Değişti",
   honey: "honey",
 }));
+
+// ************************************************************************
 
 export interface IUseArray {
   a: number;
@@ -55,6 +59,8 @@ export const useArray = create<IUseArray>((set, get) => ({
   },
 }));
 
+// ************************************************************************
+
 export interface IOmit {
   salmon: number;
   tuna: number;
@@ -67,4 +73,12 @@ export const useOmit = create<IOmit>((set) => ({
   tuna: 2,
   delAll: () => set({}, true), // Tüm store siler
   delTuna: () => set((state) => omit(state, ["tuna"]), true),
+}));
+
+// ************************************************************************
+
+export const useDogStore = create(() => ({
+  paw: 1,
+  snout: 2,
+  fur: 3,
 }));

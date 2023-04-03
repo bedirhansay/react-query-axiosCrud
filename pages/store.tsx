@@ -1,6 +1,7 @@
 import React from "react";
 import {
   useArray,
+  useDogStore,
   useMultiple,
   useOmit,
   useUserStore,
@@ -29,30 +30,47 @@ export default function Store() {
   const omits = useOmit();
 
   const { action } = useArray();
+
+  const paw = useDogStore((state) => state.paw);
+
+  const handler = () => {
+    useDogStore.setState({ paw: 3 });
+    useDogStore.subscribe(console.log); // subscribe herhangi bir değişiklik olduğunda ne yapılacağını belirleyen fonksiyondur.
+  };
   return (
     <div>
-      <h2>User Name:{name}</h2>
-      <h2>User Surname:{surname}</h2>
-      <h2>User Age:{age}</h2>
-      <button onClick={increaseAge}>Inc Age</button>
-      <button onClick={decreaseAge}>Dec Age</button>
-      <p>{nut}</p>
-      <hr />
-      <span>Nuts: {nuts}</span>
-      <br />
-      <span>Honey: {honey}</span>
-      <hr />
-      <span>a: {a}</span>
-      <br />
-      <span>b: {b}</span>
-      <hr />
-      <h2>Omit Store</h2>
-      Tuna: {omits.tuna} | Salmon: {omits.salmon}
-      <br />
-      <button onClick={omits.delAll}> Del All</button>
-      <button onClick={omits.delTuna}> Del Tuna</button>
-      <hr />
-      <button onClick={action}>Actions</button>
+      <div>
+        <h2>User Name:{name}</h2>
+        <h2>User Surname:{surname}</h2>
+        <h2>User Age:{age}</h2>
+        <button onClick={increaseAge}>Inc Age</button>
+        <button onClick={decreaseAge}>Dec Age</button>
+      </div>
+      <div>
+        <p>{nut}</p>
+        <hr />
+        <span>Nuts: {nuts}</span>
+        <br />
+        <span>Honey: {honey}</span>
+        <hr />
+        <span>a: {a}</span>
+        <br />
+        <span>b: {b}</span>
+        <hr />
+        <h2>Omit Store</h2>
+        Tuna: {omits.tuna} | Salmon: {omits.salmon}
+        <br />
+        <button onClick={omits.delAll}> Del All</button>
+        <button onClick={omits.delTuna}> Del Tuna</button>
+        <hr />
+        <button onClick={action}>Actions</button>
+      </div>
+      <div>
+        <hr />
+        paw:{paw}
+        <br />
+        <button onClick={() => handler()}>Unsub</button>
+      </div>
     </div>
   );
 }
