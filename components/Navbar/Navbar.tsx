@@ -6,7 +6,13 @@ export const Navbar = () => {
   return (
     <ul style={{ display: "flex", gap: "20px" }}>
       <li>
+        <Link href="/context">Contex </Link>
+      </li>
+      <li>
         <Link href="/store">Store </Link>
+      </li>
+      <li>
+        <Link href="/persist">Persist Store </Link>
       </li>
       <li>
         <Link href="/">Anaysayfa </Link>

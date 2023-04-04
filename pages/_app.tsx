@@ -7,7 +7,6 @@ import { ReactQueryDevtools } from "react-query/types/devtools";
 import { useUserList } from "../store/userStore";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const store = useUserList();
   return (
     <QueryClientProvider client={client}>
       <Layout>

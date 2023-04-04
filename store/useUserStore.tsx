@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { omit } from "lodash";
-
+import { persist, createJSONStorage } from "zustand/middleware";
 export interface IUser {
   name: string;
   surname: string;
@@ -82,3 +82,5 @@ export const useDogStore = create(() => ({
   snout: 2,
   fur: 3,
 }));
+
+// ************************************************************************

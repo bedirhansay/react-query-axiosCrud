@@ -37,6 +37,7 @@ export default function Store() {
     useDogStore.setState({ paw: 3 });
     useDogStore.subscribe(console.log); // subscribe herhangi bir değişiklik olduğunda ne yapılacağını belirleyen fonksiyondur.
   };
+
   return (
     <div>
       <div>
